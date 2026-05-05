@@ -1,6 +1,9 @@
 import os
 import tempfile
 import whisper
+import imageio_ffmpeg
+import os
+os.environ["PATH"] += os.pathsep + os.path.dirname(imageio_ffmpeg.get_ffmpeg_exe())
 from flask import Flask, request, jsonify, render_template
 from werkzeug.utils import secure_filename
 
