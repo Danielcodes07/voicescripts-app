@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # VoiceScript — Speech Recognition App
 
 A full-stack speech-to-text app powered by **OpenAI Whisper** and **Flask**.
@@ -30,3 +31,7 @@ speech_app/
 └── templates/
     └── index.html       # Frontend UI
 ```
+=======
+# voicescripts-app
+This is webapp that converts spoken words to text. Audio files that you wish to convert to text can also be uploaded to the webapp
+>>>>>>> 2ed58baa75432b29047d9e2d278d4b9dcb2847d7
