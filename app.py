@@ -1,9 +1,17 @@
 import os
 import tempfile
-
-# Fix ffmpeg path before whisper loads
 import imageio_ffmpeg
-os.environ["PATH"] = os.path.dirname(imageio_ffmpeg.get_ffmpeg_exe()) + os.pathsep + os.environ["PATH"]
+
+# Point whisper to the exact ffmpeg binary
+ffmpeg_exe = imageio_ffmpeg.get_ffmpeg_exe()
+ffmpeg_dir = os.path.dirname(ffmpeg_exe)
+
+# Create a symlink named 'ffmpeg' pointing to the actual binary
+symlink_path = os.path.join(ffmpeg_dir, 'ffmpeg')
+if not os.path.exists(symlink_path):
+    os.symlink(ffmpeg_exe, symlink_path)
+
+os.environ["PATH"] = ffmpeg_dir + os.pathsep + os.environ["PATH"]
 
 import whisper
 from flask import Flask, request, jsonify, render_template
