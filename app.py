@@ -14,7 +14,7 @@ ALLOWED_EXTENSIONS = {'mp3', 'wav', 'm4a', 'flac', 'ogg', 'webm'}
 
 # Load Whisper model once at startup
 print("Loading Whisper model...")
-model = whisper.load_model("base")
+model = whisper.load_model("tiny")
 print("Model loaded successfully!")
 
 
