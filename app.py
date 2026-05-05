@@ -79,6 +79,17 @@ def transcribe_microphone():
     finally:
         os.unlink(tmp_path)
 
+@app.route('/debug')
+def debug():
+    import shutil
+    ffmpeg_path = imageio_ffmpeg.get_ffmpeg_exe()
+    ffmpeg_which = shutil.which('ffmpeg')
+    current_path = os.environ.get('PATH', '')
+    return jsonify({
+        'imageio_ffmpeg_path': ffmpeg_path,
+        'ffmpeg_which': ffmpeg_which,
+        'PATH': current_path
+    })
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
