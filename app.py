@@ -1,18 +1,19 @@
 import os
 import tempfile
+
+# Fix ffmpeg path before whisper loads
 import imageio_ffmpeg
+os.environ["PATH"] = os.path.dirname(imageio_ffmpeg.get_ffmpeg_exe()) + os.pathsep + os.environ["PATH"]
+
 import whisper
 from flask import Flask, request, jsonify, render_template
 from werkzeug.utils import secure_filename
 
-os.environ["PATH"] += os.pathsep + os.path.dirname(imageio_ffmpeg.get_ffmpeg_exe())
-
 app = Flask(__name__)
-app.config['MAX_CONTENT_LENGTH'] = 50 * 1024 * 1024  # 50MB max upload
+app.config['MAX_CONTENT_LENGTH'] = 50 * 1024 * 1024
 
 ALLOWED_EXTENSIONS = {'mp3', 'wav', 'm4a', 'flac', 'ogg', 'webm'}
 
-# Load Whisper model once at startup
 print("Loading Whisper model...")
 model = whisper.load_model("tiny")
 print("Model loaded successfully!")
