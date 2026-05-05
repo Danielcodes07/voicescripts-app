@@ -1,11 +1,11 @@
 import os
 import tempfile
-import whisper
 import imageio_ffmpeg
-import os
-os.environ["PATH"] += os.pathsep + os.path.dirname(imageio_ffmpeg.get_ffmpeg_exe())
+import whisper
 from flask import Flask, request, jsonify, render_template
 from werkzeug.utils import secure_filename
+
+os.environ["PATH"] += os.pathsep + os.path.dirname(imageio_ffmpeg.get_ffmpeg_exe())
 
 app = Flask(__name__)
 app.config['MAX_CONTENT_LENGTH'] = 50 * 1024 * 1024  # 50MB max upload
