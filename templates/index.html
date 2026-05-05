@@ -64,26 +64,6 @@
       text-align: center;
       margin-bottom: 52px;
     }
-    .logo-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      padding: 6px 16px 6px 10px;
-      font-size: 11px; font-weight: 600; letter-spacing: .12em;
-      text-transform: uppercase; color: var(--accent);
-      margin-bottom: 20px;
-    }
-    .logo-badge span.dot {
-      width: 7px; height: 7px; border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 8px var(--accent);
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0%,100% { opacity:1; transform:scale(1); }
-      50%      { opacity:.4; transform:scale(.7); }
-    }
     h1 {
       font-size: clamp(2.4rem, 5vw, 3.6rem);
       font-weight: 800; line-height: 1.08;
@@ -364,7 +344,6 @@
 <div class="wrapper">
 
   <header>
-    <div class="logo-badge"><span class="dot"></span> Powered by OpenAI Whisper</div>
     <h1>Voice<em>Script</em></h1>
     <p class="subtitle">// speech → text &nbsp;·&nbsp; file upload &amp; live mic</p>
   </header>
